@@ -1,0 +1,302 @@
+:root {
+  --cls-desaturated-red: hsl(0, 36%, 70%);
+  --cls-soft-red: hsl(0, 93%, 68%);
+
+  --cls-dark-grayish-red: hsl(0, 6%, 24%);
+
+  --cls-body: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%));
+  --cls-body-2: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
+
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+
+body {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 400;
+  color: var(--cls-desaturated-red);
+  background-image: var(--cls-body);
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  width: min(100%, 90rem);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  /* place-content: center; */
+}
+
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+header {
+  padding: 1rem 1rem 1rem 2rem;
+  display: flex;
+  align-items: center;
+}
+
+header img {
+  width: 9.375rem;
+}
+
+section {
+  height: 15.625rem
+}
+
+.hero-banner {
+  background-image: url('./images/hero-mobile.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+}
+
+main {
+  padding: 2rem;
+}
+
+main>h1 {
+  color: var(--cls-dark-grayish-red);
+  font-weight: 600;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 2.5rem;
+  letter-spacing: 10px;
+  margin-bottom: 2rem;
+}
+
+main>h1 span {
+  font-weight: 300;
+  color: var(--cls-desaturated-red);
+}
+
+.details {
+  text-align: center;
+  line-height: 1.75;
+  margin-bottom: 1.55rem;
+}
+
+.field {
+  /* overflow: hidden; */
+  display: flex;
+  width: 100%;
+  align-items: center;
+  /* background-color: var(--cls-very-light-grayish-cyan); */
+  padding-left: 1rem;
+  border-radius: .30rem;
+  gap: 1rem;
+  margin-top: .30rem;
+  border: 1px solid var(--cls-desaturated-red);
+  border-radius: 10rem;
+  justify-content: space-between;
+}
+
+.field:focus-within:not(.error) {
+  border: 2.55px solid var(--cls-desaturated-red);
+}
+
+.field input {
+  width: 100%;
+  height: 3rem;
+  background-color: transparent;
+  border: none;
+  padding-left: .55rem;
+  /* outline: 2px solid red; */
+}
+
+input::placeholder {
+  color: var(--cls-desaturated-red);
+}
+
+.field input:focus,
+.field input:active {
+  outline: none;
+}
+
+input[value=""]:invalid {
+  background-color: red;
+}
+
+.field button {
+  background-image: var(--cls-body-2);
+  border: none;
+  align-self: stretch;
+  cursor: pointer;
+  width: 125px;
+  display: flex;
+  /* height: 100%; */
+  justify-content: center;
+  border-radius: 10rem;
+  align-items: center;
+  transition: transform .2s ease-in-out;
+}
+
+.field button:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 0.5rem var(--cls-soft-red);
+}
+
+.field img {
+  width: min-content;
+  height: min-content;
+  /* margin: 0 auto; */
+  /* align-self: center; */
+}
+
+.error {
+  border: 2px solid var(--cls-soft-red);
+}
+
+.error:focus-within {
+  border: 3px solid var(--cls-soft-red);
+}
+
+.error::after {
+  content: 'Please provide a valid email';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translateY(1.563rem);
+  margin-left: 1rem;
+  /* margin-bottom: 1rem; */
+  color: var(--cls-soft-red);
+  width: calc(100% - 2rem);
+  font-size: 0.813rem;
+}
+
+@media screen and (min-width: 51em) {
+  body {
+    width: 70%;
+  }
+
+  .hero-banner {
+    height: 20rem;
+  }
+
+  main {
+    margin-top: 0;
+  }
+
+  .details {
+    margin-block: 2rem;
+  }
+
+}
+
+@media screen and (min-width: 64em) {
+  body {
+    width: min(100%, 90rem);
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr auto;
+    background-image: url('./images/bg-pattern-desktop.svg');
+    background-repeat: repeat;
+    background-position: center;
+  }
+
+  header {
+    padding: 2rem 1.75rem 1.75rem 2rem;
+  }
+
+  section {
+    grid-column: 2/3;
+    grid-row: 1/4;
+    overflow: hidden;
+    height: 100%;
+  }
+
+  .hero-banner {
+    background-image: url('./images/hero-desktop.jpg');
+    height: 100%;
+    transition: transform .2s ease-in-out;
+  }
+
+  .hero-banner:hover {
+    transform: scale(1.25);
+  }
+
+  main {
+    padding: 7rem 7rem 7rem 1.75rem;
+  }
+
+  main>h1 {
+    text-align: left;
+    margin-bottom: 2rem;
+    font-size: 5.5rem;
+  }
+
+  .details {
+    text-align: left;
+    margin-bottom: 2rem;
+  }
+
+  .attribution {
+    text-align: left;
+  }
+}
+
+@media screen and (min-width: 85em) {
+  main {
+    padding: 7rem 14rem 7rem 1.75rem;
+  }
+}
