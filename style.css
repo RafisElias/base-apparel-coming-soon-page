@@ -101,15 +101,10 @@ header img {
   width: 9.375rem;
 }
 
-section {
-  height: 15.625rem
-}
-
-.hero-banner {
-  background-image: url('./images/hero-mobile.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 100%;
+picture,
+img {
+  height: inherit;
+  object-fit: cover;
 }
 
 main {
@@ -181,14 +176,10 @@ input[value=""]:invalid {
 .field button {
   background-image: var(--cls-body-2);
   border: none;
-  align-self: stretch;
   cursor: pointer;
   width: 125px;
-  display: flex;
-  /* height: 100%; */
-  justify-content: center;
+  height: 3rem;
   border-radius: 10rem;
-  align-items: center;
   transition: transform .2s ease-in-out;
 }
 
@@ -200,8 +191,7 @@ input[value=""]:invalid {
 .field img {
   width: min-content;
   height: min-content;
-  /* margin: 0 auto; */
-  /* align-self: center; */
+  margin: 0 auto;
 }
 
 .error {
@@ -225,13 +215,13 @@ input[value=""]:invalid {
   font-size: 0.813rem;
 }
 
-@media screen and (min-width: 51em) {
+#error-icon {
+  margin-right: .55rem;
+}
+
+@media screen and (min-width: 50em) {
   body {
     width: 70%;
-  }
-
-  .hero-banner {
-    height: 20rem;
   }
 
   main {
@@ -241,21 +231,20 @@ input[value=""]:invalid {
   .details {
     margin-block: 2rem;
   }
-
 }
 
 @media screen and (min-width: 64em) {
   body {
     width: min(100%, 90rem);
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 1fr max-content;
+    /* grid-template-rows: auto 1fr auto; */
     background-image: url('./images/bg-pattern-desktop.svg');
     background-repeat: repeat;
     background-position: center;
   }
 
   header {
-    padding: 2rem 1.75rem 1.75rem 2rem;
+    padding: 2rem 1.75rem 1.75rem 10rem;
   }
 
   section {
@@ -266,13 +255,13 @@ input[value=""]:invalid {
   }
 
   .hero-banner {
-    background-image: url('./images/hero-desktop.jpg');
-    height: 100%;
-    transition: transform .2s ease-in-out;
+    /* background-image: url('./images/hero-desktop.jpg'); */
+    /* height: 100%; */
+    transition: transform .4s ease-in-out;
   }
 
   .hero-banner:hover {
-    transform: scale(1.25);
+    transform: scale(1.05);
   }
 
   main {
@@ -297,6 +286,6 @@ input[value=""]:invalid {
 
 @media screen and (min-width: 85em) {
   main {
-    padding: 7rem 14rem 7rem 1.75rem;
+    padding: 7rem 14rem 7rem 10rem;
   }
 }

@@ -35,7 +35,12 @@
   </header>
 
   <section role="hero-banner">
-    <div class="hero-banner"></div>
+    <picture class="hero-banner">
+      <source media="(min-width: 1023px)" srcset="./images/hero-desktop.jpg" />
+      <source media="(max-width: 1024px)" srcset="./images/hero-mobile.jpg" />
+      <img src="./images/hero-mobile.jpg" alt="hero banner" />
+    </picture>
+    <!-- <div class="hero-banner"></div> -->
   </section>
   <main>
     <h1><span>We're</span> <br /> coming soon</h1>
